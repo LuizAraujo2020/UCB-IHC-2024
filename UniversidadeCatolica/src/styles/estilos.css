@@ -1,3 +1,6 @@
+* { /* * é um ALL. É uma boa prática para normalização*/
+    margin-bottom: 10px;
+}
 
 li {
     background-color: yellow;
@@ -25,4 +28,12 @@ h1 {
     font-family: fantasy;
     text-align: center;
     padding-bottom: 50px;
+}
+
+input {
+    background-color: #ccc;
+}
+
+#img1 { /*# é para Id*/
+    margin: 50px;
 }
