@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilizando HTML</title>
+    <link rel="stylesheet" href="./styles/estilos.css">
+</head>
+<body>
+    <h1>Universidade Católica</h1>
+    <h2>Bem vindo à Universidade Católica</h2>
+    <ul>
+        <li>Interface e Interação Humano Computador</li> <!--item de lista-->
+        <li>Estamos aprendendo HTML e CSS</li>
+        <li>Disciplina de 5º semestre</li>
+        <li>Professor: Osman Brás</li>
+        <li>Alunos: Juliana e Luiz</li>
+        
+    </ul>   <!-- lista não ordenada-->
+
+    <form action="index.html" method="POST"> <!--em "method", GET fica na URL, o GET é menos seguro por ficar visível na URL, utilizado para mudanças simples, o POST fica salvo na memória, sendo mais sero por não ser visível-->
+        <label for="name">Nome:</label>
+        <br>
+        <input type="text" name="name" id="name">
+        <input type="submit">
+
+        <br>
+        <br><!--quebra de linha. Não é uma boa prática. O melhor é fazer um margin(espaçamento ao redor) ou padding(espaçamento ao redor do botao) no css-->
+
+        <h3>Seleção/Múltipla escolha:</h3>
+
+        <input id="contrato" name="contrato" type="checkbox" value="sim">
+        <label for="contrato">Aceito os termos do contrato</label>
+
+        <br>
+        <br>
+
+        <h3>Escolha única:</h3>
+
+        <input type="radio" name="idade" id="idade5" value="5"> <!--radio é um escolha única-->
+        <label for="idade5">Menos de 5 anos</label>
+
+        <br>
+
+        <input type="radio" name="idade" id="idade10" value="10"> <!--radio é um escolha única-->
+        <label for="idade10">Menos de 10 anos</label>
+
+        <br>
+
+        <input type="radio" name="idade" id="idade15" value="15"> <!--radio é um escolha única-->
+        <label for="idade15">Menos de 15 anos</label>
+
+        <br>
+
+        <input type="radio" name="idade" id="idade20" value="20"> <!--radio é um escolha única-->
+        <label for="idade20">Menos de 20 anos</label>
+
+        <br>
+
+        <input type="button" name="mostra_dialogo" value="Clique aqui!"> <!--dois botoes dentro de um mesmo form não é uma boa prática-->
+
+        <input id="img1" type="image" name="botao" src="./img/logoUCB.jpg" width="200" height="130">
+        
+        <input type="reset" name="reset" value="Limpar">
+
+        <br>
+        <br>
+
+        <input type="file" name="anexo">
+
+        
+        <br>
+        <br>
+
+        <textarea name="texto" cols="50" rows="10" placeholder="Digite seu texto"></textarea> <!--Placeholder - ao clicar o texto some. É um texto utilizado para indicar ao usuário o que fazer. Ao clicar, ele some.-->
+
+    </form>
+
+
+    <p>Faça a sua matrícula na <strong>Católica</strong>.</div></p>
+
+    <figure>
+        <img src="./img/logoUCB.jpg" alt="Logo da Universidade Católica de Brasília">
+        <figcaption>Valor da mensalidade R$ 600,00</figcaption>
+    </figure>
+
+    <p id="conteudo"> 
+        O conteúdo desta tag será exibido em azul com fundo amarelo no navegador!
+    </p>
+
+    <!-- Não é o mais recomendado. Mas dá para utilizar css no html
+        
+        <style>
+        li {
+            background-color: yellow;
+            color: blue;
+        }
+    </style> --> 
+ 
+</body>
+</html>
+
