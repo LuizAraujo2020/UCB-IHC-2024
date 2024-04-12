@@ -10,3 +10,9 @@ figcaption {
 h1 {
     font-family: sans-serif;
 }
+
+#form-card {
+    background-color: #ccc;
+    width: 70vw;
+    display: flex;
+}
