@@ -1,0 +1,39 @@
+* { /* * é um ALL. É uma boa prática para normalização*/
+    margin-bottom: 10px;
+}
+
+li {
+    background-color: yellow;
+    color: blue;
+}
+
+#conteudo {  /*# é utilizado para indicar id*/
+    background-color: yellow;
+    color: blue;
+}
+
+h1 {
+    color: red;
+}
+
+/*.hgdg {} . é utilizado para indicar class*/
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    /*font-family: 'Courier New', Courier, monospace;*/
+    font-family: fantasy;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+input {
+    background-color: #ccc;
+}
+
+#img1 { /*# é para Id*/
+    margin: 50px;
+}
