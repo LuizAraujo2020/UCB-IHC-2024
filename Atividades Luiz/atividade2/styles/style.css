@@ -10,9 +10,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
 }
 
 /*============ TITLES ============*/
@@ -20,7 +17,6 @@ h1 {
     font-size: 3rem;
     font-weight: 700;
     line-height: 1.2;
-    /* text-align: center; */
 
     margin-bottom: 1.313rem;
 }
@@ -49,14 +45,10 @@ h3 {
 
     background: #222;
 
-
     border: 3px solid black;
     border-radius: 10px;
     padding: 1.313rem;
 
-    /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
-    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
-    /* box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px; */
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
@@ -89,7 +81,6 @@ fieldset {
 }
 
 .field-row input {
-    /* width: 29rem; */
     width: 100%;
 
     color: #ccc;
@@ -112,7 +103,6 @@ fieldset {
 }
 
 .field-grid-3 {
-    /* padding: 1.313rem; */
     margin-bottom: 1.313rem;
 }
 
@@ -123,7 +113,6 @@ fieldset textarea {
     margin-right: 5rem;
     width: 97%;
     height: 7rem;
-    /* height: 100%; */
 
     color: #ccc;
     background-color: #222;
