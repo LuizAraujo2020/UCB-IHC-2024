@@ -155,3 +155,15 @@ button {
     background-color: #888;
     border-color: red;
 }
+
+
+/*============ LINKS ============*/
+a {
+    color: #888;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #888;
+    text-decoration: underline;
+}
