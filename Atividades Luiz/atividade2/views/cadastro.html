@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <main class="main-card">
+        <h1>Formulário</h1>
+    <!-- <div style="width: 1174px; height: 1173px; background: linear-gradient(134deg, black 0%, #424242 100%)"></div> -->
+
+    <form action="../index.html" method="get">
+    <fieldset class="field-colunm">
+        <legend><h2>Dados Pessoais</h2></legend>
+
+        <div class="field-row">
+        <label for="name">Nome: </label>
+        <input type="text" name="name" id="name">
+        </div>
+
+        <div class="field-row">
+        <label for="address">Endereço: </label>
+        <input type="text" name="address" id="address">
+        </div>
+
+        <div class="field-row">
+        <label for="city">Cidade: </label>
+        <input type="text" name="city" id="city">
+        </div>
+
+        <div class="field-row">
+        <label for="state">Estado: </label>
+        <select name="state" id="state">
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP">São Paulo</option>
+        </select>
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <legend><h2>Dados Profissionais</h2></legend>
+
+        <div class="field-grid-3">
+        <h3>Natureza do Cargo: </h3>
+        <input type="radio" name="job" id="management">
+        <label for="management">Gerência</label> 
+
+        <input type="radio" name="job" id="finance">
+        <label for="finance">Financeiro</label> 
+
+        <input type="radio" name="job" id="reception">
+        <label for="reception">Recepcão</label> 
+
+        <input type="radio" name="job" id="administration">
+        <label for="administration">Administrativo</label> 
+
+        <input type="radio" name="job" id="law">
+        <label for="law">Jurídico</label> 
+        </div>
+
+
+        <div class="field-grid-3">
+        <h3>Área de Interesse: </h3>
+        <input type="checkbox" name="computer" id="computer" value="computer">
+        <label for="computer">Computação</label> 
+
+        <input type="checkbox" name="biology" id="biologybiology">
+        <label for="biology">Biologia</label> 
+
+        <input type="checkbox" name="environment" id="environment" value="environment">
+        <label for="environment">Meio Ambiente</label> 
+
+        <input type="checkbox" name="engineering" id="engineering" value="engineering">
+        <label for="engineering">Engenharia</label> 
+
+        <input type="checkbox" name="history" id="history" value="history">
+        <label for="history">História</label> 
+        </div>
+
+
+        <h3>Mini-currículo: </h3>
+        <textarea name="curriculum" id="curriculum"></textarea>
+    </fieldset>
+
+    <button type="submit" class="button-positive">Enviar</button>
+    <button type="reset" class="button-destructive">Limpar</button>
+    </form>
+    </main>
+</body>
+</html>

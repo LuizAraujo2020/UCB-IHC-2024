@@ -1,0 +1,169 @@
+body {
+    width: 100vw; 
+    height: 100vh; 
+    background: linear-gradient(134deg, black 0%, #303030 100%);
+
+    color: #DDD;
+
+    font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*============ TITLES ============*/
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin-bottom: 1.313rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.313rem;
+    font-weight: 500;
+    line-height: 1.2;
+
+    margin-bottom: 0.5rem;
+}
+
+
+/*============ CARD ============*/
+.main-card {
+    width: 60vw; 
+    height: 76vh; 
+
+    background: #222;
+
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 1.313rem;
+
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+/*============ FORM ============*/
+fieldset {
+    background: black;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+
+    padding: 1.313rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1.313rem;
+}
+
+.field-colunm {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-row {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.field-row label {
+    width: 5.5rem;
+}
+
+.field-row input {
+    width: 100%;
+
+    color: #ccc;
+    background-color: #222;
+    border-radius: 5px;
+    border: 1px solid #DDD;
+    
+    padding: 0.313rem;
+}
+
+.field-row select {
+    width: 100%;
+
+    color: #ccc;
+    background-color: #222;
+    border-radius: 5px;
+    border: 1px solid #DDD;
+
+    padding: 0.313rem;
+}
+
+.field-grid-3 {
+    margin-bottom: 1.313rem;
+}
+
+
+fieldset textarea {
+    resize: none;
+
+    margin-right: 5rem;
+    width: 97%;
+    height: 7rem;
+
+    color: #ccc;
+    background-color: #222;
+    border-radius: 5px;
+    border: 1px solid #DDD;
+
+    padding: 0.313rem;
+    margin-bottom: 0.5rem;
+}
+
+
+/*============ BUTTONS ============*/
+button {
+    width: 10rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    color: #888;
+    background-color: #222;
+
+    font-size: 1.313rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    border-radius: 0.5rem;
+    border: 2px solid #888;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.button-positive:hover {
+    color: green;
+    background-color: #888;
+    border-color: green;
+}
+
+.button-destructive:hover {
+    color: red;
+    background-color: #888;
+    border-color: red;
+}
+
+
+/*============ LINKS ============*/
+a {
+    color: #888;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #888;
+    text-decoration: underline;
+}
