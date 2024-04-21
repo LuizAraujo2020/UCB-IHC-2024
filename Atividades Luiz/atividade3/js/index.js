@@ -1,14 +1,18 @@
 
 //====== Elements
-// const inputCpf    = document.getElementById('inputCpf').addEventListener('change', validateCpf);
 document.getElementById('inputCpf').addEventListener('change', validateCpf);
+document.getElementById('inputCnpj').addEventListener('change', validateCnpj);
+document.getElementById('inputNumber').addEventListener('change', validateNumber);
 
-const inputCnpj   = document.getElementById('inputCnpj');
-const inputNumber = document.getElementById('inputNumber');
-const inputPrice  = document.getElementById('inputPrice');
-const inputTax    = document.getElementById('inputTax');
+// const inputCpf    = document.getElementById('inputCpf')
+// const inputCnpj   = document.getElementById('inputCnpj');
+// const inputNumber = document.getElementById('inputNumber');
+// const inputPrice  = document.getElementById('inputPrice');
+// const inputTax    = document.getElementById('inputTax');
 
-const inputCpfLabel = document.getElementById('cpfHelp');
+const inputCpfLabel    = document.getElementById('cpfHelp');
+const inputCnpjLabel   = document.getElementById('cnpjHelp');
+const inputNumberLabel = document.getElementById('numberHelp');
 
 
 //====== Functions
@@ -31,7 +35,7 @@ const Messages = {
     },
     number: {
         tip: 'Número real (com ponto).',
-        required: 'Informe um número real (com ponto).',
+        required: 'Um número real (com ponto) é obrigatório.',
         invalid:  'O número informado é inválido.'
     },
     price: {
@@ -48,13 +52,14 @@ const Messages = {
 
 //====== Validators
 function validateCpf() {
-
-    var Soma;
-    var Resto;
-    Soma = 0;
     
     let cpf = this.value;
     cpf = cpf.replace(/\D/g, '');
+
+    var Soma;
+    var Resto;
+
+    Soma = 0;
 
     if(cpf == undefined || cpf == '') {
         inputCpfLabel.innerText = Messages.cpf.required;
@@ -62,7 +67,6 @@ function validateCpf() {
     }
 
     if(cpf.length != 11 || cpf == "00000000000") {
-        // inputCpfLabel.innerText = Messages.cpf.invalid;
         inputCpfLabel.innerHTML = Messages.cpf.invalid;
         return
     }
@@ -87,18 +91,95 @@ function validateCpf() {
         return
     }
 
-
-
-
-
-
-
     inputCpfLabel.innerText = '\n';
 }
 
+
+function validateCnpj() {
+    let cnpj = this.value;
+    cnpj = cnpj.replace(/[^\d]+/g,'');
+ 
+    if(cnpj == undefined || cnpj == '') {
+        inputCnpjLabel.innerText = Messages.cnpj.required;
+        return
+    }
+     
+    if (cnpj.length != 14) {
+        inputCnpjLabel.innerHTML = Messages.cnpj.invalid;
+        return
+    }
+ 
+    // Elimina CNPJs invalidos conhecidos
+    if (cnpj == "00000000000000" || 
+        cnpj == "11111111111111" || 
+        cnpj == "22222222222222" || 
+        cnpj == "33333333333333" || 
+        cnpj == "44444444444444" || 
+        cnpj == "55555555555555" || 
+        cnpj == "66666666666666" || 
+        cnpj == "77777777777777" || 
+        cnpj == "88888888888888" || 
+        cnpj == "99999999999999") {
+            inputCnpjLabel.innerHTML = Messages.cpf.invalid;
+        return
+    }
+         
+    // Valida DVs
+    tamanho = cnpj.length - 2
+    numeros = cnpj.substring(0,tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(0)) {
+        inputCnpjLabel.innerHTML = Messages.cnpj.invalid;
+        return
+    }
+         
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0,tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+      soma += numeros.charAt(tamanho - i) * pos--;
+      if (pos < 2)
+            pos = 9;
+    }
+
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(1)) {
+        inputCnpjLabel.innerHTML = Messages.cnpj.invalid;
+        return
+    }
+
+    inputCnpjLabel.innerText = '\n';
+}
+
+function validateNumber() {
+    let number = this.value;
+
+    if (number == undefined || number == '') {
+        inputNumberLabel.innerHTML = Messages.number.required;
+        return
+    }
+
+    if (isFloat(number) == false) {
+        inputNumberLabel.innerHTML = Messages.number.invalid;
+        return
+    }
+
+    inputNumberLabel.innerText = '\n';
+}
+
+
 //====== Utils
 function isFloat(n) {
-    return Number(n) === n && n % 1 !== 0;
+    return Number(n) == n && n % 1 != 0;
 }
 
 /* Event listener */
