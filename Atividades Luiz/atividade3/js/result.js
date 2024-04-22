@@ -20,8 +20,8 @@ function init() {
 
     cpf.innerText = formatCPF(inputCpf);
     cnpj.innerText = formatCNPJ(inputCnpj);
-    numberAbs.innerText = inputNumber;
-    numberRounded.innerText = inputNumber;
+    numberAbs.innerText = Math.abs(inputNumber);
+    numberRounded.innerText = Math.round(inputNumber);
     comission.innerText = calculateComission();
 }
 init();
@@ -63,5 +63,5 @@ function formatCNPJ(cnpj){
     cnpj = cnpj.replace(/[^\d]/g, "");
     
     //realizar a formatação...
-    return cnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3/0001-$4");
+    return cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
 }
