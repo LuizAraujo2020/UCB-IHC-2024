@@ -3,21 +3,36 @@
 document.getElementById('inputCpf').addEventListener('change', validateCpf);
 document.getElementById('inputCnpj').addEventListener('change', validateCnpj);
 document.getElementById('inputNumber').addEventListener('change', validateNumber);
+document.getElementById('inputPrice').addEventListener('change', validatePrice);
+document.getElementById('inputTax').addEventListener('change', validateTax);
 
-// const inputCpf    = document.getElementById('inputCpf')
-// const inputCnpj   = document.getElementById('inputCnpj');
-// const inputNumber = document.getElementById('inputNumber');
-// const inputPrice  = document.getElementById('inputPrice');
-// const inputTax    = document.getElementById('inputTax');
+document.getElementById('submitButton').addEventListener('mouseover', checkSubmit);
 
 const inputCpfLabel    = document.getElementById('cpfHelp');
 const inputCnpjLabel   = document.getElementById('cnpjHelp');
 const inputNumberLabel = document.getElementById('numberHelp');
+const inputSellLabel   = document.getElementById('sellHelp');
 
+let isCpfValid    = false;
+let isCnpjValid   = false;
+let isNumberValid = false;
+let isPriceValid  = false;
+let isTaxValid    = false;
 
 //====== Functions
-function handleSubmit() {
-    // validateCpf(inputCpf.value);
+function checkSubmit() {
+    if (isCpfValid && isCnpjValid && isNumberValid && isPriceValid && isTaxValid) {
+        document.getElementById('submitButton').disabled = false;
+
+        inputCpfLabel.innerText    = '\n';
+        inputCnpjLabel.innerText   = '\n';
+        inputNumberLabel.innerText = '\n';
+        inputSellLabel.innerText   = '\n';
+
+        return
+    }
+
+    document.getElementById('submitButton').disabled = true;
 }
 
 
@@ -45,13 +60,14 @@ const Messages = {
     },
     tax: {
         tip: '',
-        required: 'Informe o valor da venda.',
+        required: 'Informe a taxa de comissão!',
         invalid:  'Informe a taxa de comissão!'
     }
 }
 
 //====== Validators
 function validateCpf() {
+    checkSubmit();
     
     let cpf = this.value;
     cpf = cpf.replace(/\D/g, '');
@@ -63,11 +79,13 @@ function validateCpf() {
 
     if(cpf == undefined || cpf == '') {
         inputCpfLabel.innerText = Messages.cpf.required;
+        isCpfValid = false;
         return
     }
 
     if(cpf.length != 11 || cpf == "00000000000") {
         inputCpfLabel.innerHTML = Messages.cpf.invalid;
+        isCpfValid = false;
         return
     }
 
@@ -78,6 +96,7 @@ function validateCpf() {
     if ((Resto == 10) || (Resto == 11))  Resto = 0;
     if (Resto != parseInt(cpf.substring(9, 10)) ) {
         inputCpfLabel.innerHTML = Messages.cpf.invalid;
+        isCpfValid = false;
         return
     }
 
@@ -88,24 +107,31 @@ function validateCpf() {
     if ((Resto == 10) || (Resto == 11))  Resto = 0;
     if (Resto != parseInt(cpf.substring(10, 11) ) ) {
         inputCpfLabel.innerHTML = Messages.cpf.invalid;
+        isCpfValid = false;
         return
     }
 
     inputCpfLabel.innerText = '\n';
+    isCpfValid = true;
+    checkSubmit();
 }
 
 
 function validateCnpj() {
+    checkSubmit();
+
     let cnpj = this.value;
     cnpj = cnpj.replace(/[^\d]+/g,'');
  
     if(cnpj == undefined || cnpj == '') {
         inputCnpjLabel.innerText = Messages.cnpj.required;
+        isCnpjValid = false;
         return
     }
      
     if (cnpj.length != 14) {
         inputCnpjLabel.innerHTML = Messages.cnpj.invalid;
+        isCnpjValid = false;
         return
     }
  
@@ -121,6 +147,7 @@ function validateCnpj() {
         cnpj == "88888888888888" || 
         cnpj == "99999999999999") {
             inputCnpjLabel.innerHTML = Messages.cpf.invalid;
+            isCnpjValid = false;
         return
     }
          
@@ -138,6 +165,7 @@ function validateCnpj() {
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
     if (resultado != digitos.charAt(0)) {
         inputCnpjLabel.innerHTML = Messages.cnpj.invalid;
+        isCnpjValid = false;
         return
     }
          
@@ -154,32 +182,87 @@ function validateCnpj() {
     resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
     if (resultado != digitos.charAt(1)) {
         inputCnpjLabel.innerHTML = Messages.cnpj.invalid;
+        isCnpjValid = false;
         return
     }
 
     inputCnpjLabel.innerText = '\n';
+    isCnpjValid = true;
+    checkSubmit()
 }
 
 function validateNumber() {
+    checkSubmit();
+
     let number = this.value;
 
     if (number == undefined || number == '') {
         inputNumberLabel.innerHTML = Messages.number.required;
+        isNumberValid = false;
         return
     }
 
     if (isFloat(number) == false) {
         inputNumberLabel.innerHTML = Messages.number.invalid;
+        isNumberValid = false;
         return
     }
 
     inputNumberLabel.innerText = '\n';
+    isNumberValid = true;
+    checkSubmit()
+}
+
+function validatePrice() {
+    checkSubmit();
+
+    let price = this.value;
+    if (price == undefined || price == '') {
+        inputSellLabel.innerHTML = Messages.price.required;
+        isPriceValid = false;
+        return
+    }
+
+    if (isNumber(price)) {
+        inputSellLabel.innerHTML = Messages.price.invalid;
+        isPriceValid = false;
+        return
+    }
+
+    inputSellLabel.innerText = '\n';
+    isPriceValid = true;
+    checkSubmit()
+}
+
+function validateTax() {
+    checkSubmit();
+
+    let tax = this.value;
+    if (tax == undefined || tax == '') {
+        inputSellLabel.innerHTML = Messages.tax.required;
+        isTaxValid = false;
+        return
+    }
+    
+    if (isNumber(tax)) {
+        inputSellLabel.innerHTML = Messages.tax.invalid;
+        isTaxValid = false;
+        return
+    }
+
+    inputSellLabel.innerText = '\n';
+    isTaxValid = true;
+    checkSubmit()
 }
 
 
 //====== Utils
 function isFloat(n) {
     return Number(n) == n && n % 1 != 0;
+}
+
+function isNumber(value) {
+    return typeof value === 'number';
 }
 
 /* Event listener */
