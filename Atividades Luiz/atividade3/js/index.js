@@ -1,11 +1,13 @@
-
 //====== Elements
+
+// Monitar mudanças nos elementos de entrada.
 document.getElementById('inputCpf').addEventListener('change', validateCpf);
 document.getElementById('inputCnpj').addEventListener('change', validateCnpj);
 document.getElementById('inputNumber').addEventListener('change', validateNumber);
 document.getElementById('inputPrice').addEventListener('change', validatePrice);
 document.getElementById('inputTax').addEventListener('change', validateTax);
 
+// Monitora quando o mouse passar por cima do botão 'submit'.
 document.getElementById('submitButton').addEventListener('mouseover', checkSubmit);
 
 const inputCpfLabel    = document.getElementById('cpfHelp');
@@ -13,13 +15,16 @@ const inputCnpjLabel   = document.getElementById('cnpjHelp');
 const inputNumberLabel = document.getElementById('numberHelp');
 const inputSellLabel   = document.getElementById('sellHelp');
 
+// Flags que indicam se o cada elemento de entrada é válido.
 let isCpfValid    = false;
 let isCnpjValid   = false;
 let isNumberValid = false;
 let isPriceValid  = false;
 let isTaxValid    = false;
 
+
 //====== Functions
+// Verifica o estado das flags dos inputs, para des/habilitar o botão submit.
 function checkSubmit() {
     if (isCpfValid && isCnpjValid && isNumberValid && isPriceValid && isTaxValid) {
         document.getElementById('submitButton').disabled = false;
@@ -83,7 +88,7 @@ function validateCpf() {
         return
     }
 
-    if(cpf.length != 11 || cpf == "00000000000") {
+    if(cpf.length != 11) {
         inputCpfLabel.innerHTML = Messages.cpf.invalid;
         isCpfValid = false;
         return

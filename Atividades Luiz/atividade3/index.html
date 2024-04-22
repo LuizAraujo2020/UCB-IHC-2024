@@ -24,11 +24,11 @@
 
         <div class="card">
         <div class="card-body">
-            <form>
+            <form method="get" action="./result.html">
                 <!-- INPUT: CPF -->
                 <div class="mb-3 p-3">
                     <label for="inputCpf" class="form-label">CPF: </label>
-                    <input type="text" class="form-control" id="inputCpf" aria-describedby="cpfHelp">
+                    <input type="text" class="form-control" id="inputCpf" name="inputCpf" aria-describedby="cpfHelp">
                     <div id="cpfHelp" class="form-text">Somente números.</div>
                 </div>
 
@@ -36,7 +36,7 @@
                 <!-- INPUT: CNPJ -->
                 <div class="mb-3 p-3">
                     <label for="inputCnpj" class="form-label">CNPJ: </label>
-                    <input type="text" class="form-control" id="inputCnpj" aria-describedby="cnpjHelp">
+                    <input type="text" class="form-control" id="inputCnpj" name="inputCnpj" aria-describedby="cnpjHelp">
                     <div id="cnpjHelp" class="form-text">Somente números.</div>
                 </div>
 
@@ -44,7 +44,7 @@
                 <!-- INPUT: Numero -->
                 <div class="mb-3 p-3">
                     <label for="inputNumber" class="form-label">Número Real:</label>
-                    <input type="number" class="form-control" id="inputNumber">
+                    <input type="number" step="0.01" class="form-control" id="inputNumber" name="inputNumber">
                     <div id="numberHelp" class="form-text">Informe um número real (com ponto).</div>
                 </div>
 
@@ -52,13 +52,12 @@
                 <!-- INPUT: Venda -->
                 <div class="mb-3 p-3">
                     <label for="inputPrice" class="form-label">Valor de venda:</label>
-                    <input type="number" class="form-control" id="inputPrice">
+                    <input type="number" step="0.01" class="form-control" id="inputPrice" name="inputPrice">
 
                     <label for="inputTax" class="form-label">Taxa de comissão:</label>
-                    <input type="number" class="form-control" id="inputTax">
+                    <input type="number" step="0.01" class="form-control" id="inputTax" name="inputTax">
                     <div id="sellHelp" class="form-text">Informe um preço e uma taxa.</div>
                 </div>
-
 
                 <!-- INPUT:  -->
                 <button type="submit" id="submitButton" class="btn btn-primary m-3" disabled>Submit</button>
